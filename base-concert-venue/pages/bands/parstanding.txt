@@ -1,0 +1,29 @@
+ChakraUi components
+image
+spinner
+querries => getBandId, getBands
+types => Band
+
+getStaticProps
+  params: getBandId
+  band = async
+  error = e.message
+
+getStaticPaths
+  bands = async
+  paths = bands.map
+
+BandPage
+  band
+  error
+
+  <QueryError message />
+  <Box>
+    <Spinner>
+
+    <VStack>
+      heading
+      text = band description
+      image = alt "band photo"
+      text = image footer
+    
