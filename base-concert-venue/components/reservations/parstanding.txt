@@ -1,0 +1,36 @@
+PROPS
+  showId
+  submitPurchase
+
+HOOKS
+  useSWR
+    /api/show/${showId}
+    getShowsViaAPI(showId)
+      data: show
+      error
+      isValidating
+
+STATE
+  setReservedSeatCount
+  reservationId
+
+RENDER
+  show 
+  ?
+    heading 
+      = 'Reserve your seats for' show.band.name
+    text 
+      = show.scheduledAt
+    
+    show.availableSeatCount 
+    ?
+      'Show is sold out!'
+    :
+      heading = seats left
+      <NumberInput> chakra-ui
+        NumberInputField
+        NumberInputStepper
+      heading = tickets
+      button = purchase
+  :
+    null
