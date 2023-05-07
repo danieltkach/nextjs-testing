@@ -30,3 +30,11 @@ describe('band component displays correct band information', () => {
     expect(imageAuthor).toHaveAttribute('href', "https://pixabay.com/users/adinavoicu-485024/");
   });
 });
+
+describe('errors are handled properly', () => {
+  test('band component displays error message', () => {
+    render(<BandComponent band={null} error={'no band found'} />);
+
+    assert(screen.getByRole('heading', { name: /no band found/i }));
+  });
+});
