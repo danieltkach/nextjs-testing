@@ -6,8 +6,9 @@ const BASE_API = "http://localhost:3000";
 
 export const handlers = [
   rest.get(`${BASE_API}/api/shows/:showId`, async (req, res, ctx) => {
+    const { showId } = req.params;
     const { fakeShows } = await readFakeData();
-    return res(ctx.json({ show: fakeShows[0] }));
+    return res(ctx.json({ show: fakeShows[showId] }));
   }),
 
   rest.get(`${BASE_API}/api/users/:userId/reservations`, async (req, res, ctx) => {
