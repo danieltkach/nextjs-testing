@@ -1,0 +1,14 @@
+PROPS:
+  userId
+
+getUserReservations
+  userId
+  => []
+
+RENDER:
+  spinner
+  shows, purchase
+
+  list
+    <UserReservation>
+  button = purchase more tickets  

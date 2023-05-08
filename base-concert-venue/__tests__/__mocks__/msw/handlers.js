@@ -1,5 +1,6 @@
 import { rest } from 'msw';
-import { readFakeData } from '@/__tests__/__mocks__/fakeData';
+import { getReservationsByUserId } from '@/lib/features/users/queries.ts';
+import { readFakeData } from '../fakeData';
 
 const BASE_API = "http://localhost:3000";
 
@@ -8,4 +9,9 @@ export const handlers = [
     const { fakeShows } = await readFakeData();
     return res(ctx.json({ show: fakeShows[0] }));
   }),
+
+  rest.get(`${BASE_API}/api/users/:userId/reservations`, async (req, res, ctx) => {
+    const data = await getReservationsByUserId(1);
+    return res(ctx.json({ userReservations: data }));
+  })
 ];
