@@ -12,7 +12,8 @@ export const handlers = [
   }),
 
   rest.get(`${BASE_API}/api/users/:userId/reservations`, async (req, res, ctx) => {
-    const data = await getReservationsByUserId(1);
+    const { userId } = req.params;
+    const data = await getReservationsByUserId(+userId);
     return res(ctx.json({ userReservations: data }));
   })
 ];
