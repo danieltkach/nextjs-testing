@@ -24,5 +24,7 @@ module.exports = (on, config) => {
     "db:reset": () => resetDB().then(() => null),
     addBand: (newBand) => addBand(newBand).then(() => null),
   });
+  config.env.REVALIDATION_SECRET = process.env.REVALIDATION_SECRET;
 
+  return config;
 };
