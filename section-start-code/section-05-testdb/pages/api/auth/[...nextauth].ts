@@ -6,6 +6,13 @@ import { axiosInstance } from "@/lib/axios/axiosInstance";
 import { routes } from "@/lib/axios/routes";
 import type { User } from "@/lib/features/users/types";
 
+interface CustomSession {
+  user: User;
+  expires: string;
+  token: string;
+}
+
+
 export default NextAuth({
   providers: [
     // reference: https://next-auth.js.org/configuration/providers/credentials#how-to
@@ -49,7 +56,7 @@ export default NextAuth({
       // reference: https://next-auth.js.org/configuration/callbacks#jwt-callback
       // Persist the JWT token to the token right after signin
       if (user) {
-        token.user = user.user;
+        token.user = user;
       }
       return token;
     },
@@ -60,9 +67,17 @@ export default NextAuth({
 
       const tokenUser = token.user as User;
 
-      session.token = tokenUser.token;
+      // session.token = tokenUser.token;
       session.user = tokenUser;
-      return session;
+      // return session;
+
+      const customSession: CustomSession = {
+        user: tokenUser,
+        expires: session.expires,
+        token: tokenUser.token!
+      };
+    
+      return customSession;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
