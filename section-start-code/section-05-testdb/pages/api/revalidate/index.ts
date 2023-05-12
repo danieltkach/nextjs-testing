@@ -8,7 +8,7 @@ handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ message: "endpoint only available for test use" });
   }
 
-  if (req.query.secret !== process.env.REVALIDATE_SECRET) {
+  if (req.query.secret !== process.env.REVALIDATION_SECRET) {
     res.status(401).json({ message: "invalid revalidation secret" });
   }
 
