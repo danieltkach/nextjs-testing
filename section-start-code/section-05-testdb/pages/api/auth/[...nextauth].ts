@@ -6,12 +6,11 @@ import { axiosInstance } from "@/lib/axios/axiosInstance";
 import { routes } from "@/lib/axios/routes";
 import type { User } from "@/lib/features/users/types";
 
-interface CustomSession {
-  user: User;
-  expires: string;
-  token: string;
-}
-
+// interface CustomSession {
+//   user: User;
+//   expires: string;
+//   token: string;
+// }
 
 export default NextAuth({
   providers: [
@@ -67,17 +66,16 @@ export default NextAuth({
 
       const tokenUser = token.user as User;
 
-      // session.token = tokenUser.token;
+      session.token = tokenUser.token;
       session.user = tokenUser;
-      // return session;
+      return session;
 
-      const customSession: CustomSession = {
-        user: tokenUser,
-        expires: session.expires,
-        token: tokenUser.token!
-      };
-    
-      return customSession;
+      // const customSession: CustomSession = {
+      //   user: tokenUser,
+      //   expires: session.expires,
+      //   token: tokenUser.token!
+      // };
+      // return customSession;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
