@@ -39,7 +39,7 @@ it("should load refreshed page from cache after a new show is added", () => {
   );
 
   cy.reload();
-  cy.findByRole("heading", { name: "" }).should("exist");
+  cy.findByRole("heading", { name: /upcoming shows/i }).should("exist");
 
   cy.resetDbAndIsrCache();
 });
