@@ -8,3 +8,6 @@ The practice includes:
 
 ### References:
 Bonnie Schulkin, www.udemy.com/course/nextjs-testing
+
+![Screenshot from 2023-05-16 00-21-18](https://github.com/danieltkach/nextjs-testing/assets/70539591/a81be9d1-9766-496a-882d-3eba7ee6dd05)
+
