@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "db:reset": "source scripts/reset-db.sh",
+    "db:reset": "sh ./scripts/reset-db.sh",
     "dev": "next dev",
     "lint": "next lint",
     "build": "next build",
