@@ -8,7 +8,7 @@ it("skips client-side bundle, confirming data from ISR cache", () => {
       cy.state("document").write(staticHtml);
     });
 
-  cy.findAllByText(/avalanche of cheese/i).should("exist");
+  cy.findAllByText(/avalanche of cheese/i).should("not.exist");
   cy.findAllByText(/the joyous nun riot/i).should("exist");
   cy.findAllByText(/shamrock pete/i).should("exist");
   cy.findAllByText(/the wandering bunnies/i).should("exist");
