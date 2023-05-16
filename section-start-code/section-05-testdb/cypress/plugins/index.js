@@ -26,8 +26,7 @@ module.exports = (on, config) => {
   on("task", {
     "db:reset": () => resetDB().then(() => null),
     addBand: (newBand) => addBand(newBand).then(() => null),
-    addReservation: (newReservation) =>
-      addReservation(newReservation).then(() => null),
+    addReservation: (newReservation) => addReservation(newReservation).then(() => null),
   });
   config.env.REVALIDATION_SECRET = process.env.REVALIDATION_SECRET;
 
