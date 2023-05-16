@@ -45,7 +45,7 @@ it("completes the ticket purchase flow, starting not signed in", () => {
   cy.findByRole("button", { name: /shows/i }).click();
 
   // click second (and last) tickets button
-  cy.findAllByRole("buton", { name: /tickets/i })
+  cy.findAllByRole("button", { name: /tickets/i })
     .last()
     .click();
 

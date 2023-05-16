@@ -1,11 +1,11 @@
-it('skips client-side bundle, confirming data from ISR cache', () => {
+it("skips client-side bundle, confirming data from ISR cache", () => {
   cy.task("db:reset");
 
-  cy.request('/bands')
-    .its('body')
-    .then(html => {
-      const staticHtml = html.replace('/<script.*?>.*?<\/script>/gm', '');
-      cy.state('document').write(staticHtml);
+  cy.request("/bands")
+    .its("body")
+    .then((html) => {
+      const staticHtml = html.replace("/<script.*?>.*?</script>/gm", "");
+      cy.state("document").write(staticHtml);
     });
 
   cy.findAllByText(/avalanche of cheese/i).should("exist");
