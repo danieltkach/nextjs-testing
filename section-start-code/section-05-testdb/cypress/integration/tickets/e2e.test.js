@@ -1,5 +1,5 @@
 /* eslint-disable cypress/unsafe-to-chain-command */
-it("completes the ticket purchase flow, starting not signed in", ()=>{
+it("completes the ticket purchase flow, starting not signed in", () => {
   // load shows page
   cy.task("db:reset").visit("/");
   cy.findByRole("button", { name: /shows/i }).click();
@@ -18,7 +18,7 @@ it("completes the ticket purchase flow, starting not signed in", ()=>{
     .clear()
     .type(Cypress.env("TEST_USER_PASSWORD"));
 
-  cy.findByRole("main").within(()=>{
+  cy.findByRole("main").within(() => {
     cy.findByRole("button", { name: /sign in/i }).click();
   });
 
