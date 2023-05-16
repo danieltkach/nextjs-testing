@@ -4,7 +4,9 @@ it("runs auth flow for successful login to protected reservations page", () => {
   cy.task("db:reset").visit("/reservations/0");
 
   // check for sign in form
-  cy.findByRole("heading", { name: /sign in to your account/i }).should("exist");
+  cy.findByRole("heading", { name: /sign in to your account/i }).should(
+    "exist"
+  );
 
   // check that there's no option to purchase tickets
   cy.findByRole("button", { name: /purchase/i }).should("not.exist");
@@ -37,7 +39,9 @@ it("runs auth flow for successful login to protected reservations page", () => {
 
 it("checks failed sign-in flow", () => {
   cy.task("db:reset").visit("/user");
-  cy.findByRole("heading", { name: /sign in to your account/i }).should("exist");
+  cy.findByRole("heading", { name: /sign in to your account/i }).should(
+    "exist"
+  );
   cy.findByRole("heading", { name: /welcome/i }).should("not.exist");
 
   cy.findByLabelText(/email address/i)
@@ -82,8 +86,13 @@ it("redirects to sign-in for protected pages", () => {
 });
 
 it("does not show the sign-in page when already signed in", () => {
-  cy.task("db:reset").signIn(Cypress.env("TEST_USER_EMAIL"), Cypress.env("TEST_USER_PASSWORD"));
+  cy.task("db:reset").signIn(
+    Cypress.env("TEST_USER_EMAIL"),
+    Cypress.env("TEST_USER_PASSWORD")
+  );
   cy.visit("/reservations/0");
-  cy.findByRole("heading", { name: /sign in to your account/i }).should("not.exist");
+  cy.findByRole("heading", { name: /sign in to your account/i }).should(
+    "not.exist"
+  );
   cy.findByRole("button", { name: /purchase/i }).should("exist");
 });

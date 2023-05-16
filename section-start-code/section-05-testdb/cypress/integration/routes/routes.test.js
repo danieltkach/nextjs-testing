@@ -1,5 +1,5 @@
-import { generateNewBand } from '../../__tests__/__mocks__/fakeData/newBand';
-import { generateRandomId } from '../../lib/features/reservations/utils';
+import { generateNewBand } from "../../../__tests__/__mocks__/fakeData/newBand";
+import { generateRandomId } from "../../../lib/features/reservations/utils";
 
 it("displays correct heading when navigating to shows route", () => {
   cy.visit("/");
@@ -10,7 +10,9 @@ it("displays correct heading when navigating to shows route", () => {
 it("displays correct heading for the bands route", () => {
   cy.visit("/");
   cy.findByRole("button", { name: /bands/i }).click();
-  cy.findByRole("heading", { name: /Our Illustrious Performers/i }).should("exist");
+  cy.findByRole("heading", { name: /Our Illustrious Performers/i }).should(
+    "exist"
+  );
 });
 
 it("displays correct band name for band route that existed at build time", () => {

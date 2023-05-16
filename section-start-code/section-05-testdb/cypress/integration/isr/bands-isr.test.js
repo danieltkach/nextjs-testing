@@ -1,6 +1,6 @@
 it('skips client-side bundle, confirming data from ISR cache', () => {
   cy.task("db:reset");
-  
+
   cy.request('/bands')
     .its('body')
     .then(html => {

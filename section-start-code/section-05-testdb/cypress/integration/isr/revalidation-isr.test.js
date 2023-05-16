@@ -1,6 +1,6 @@
-import { generateNewBand } from "../../__tests__/__mocks__/fakeData/newBand";
-import { generateNewShow } from "../../__tests__/__mocks__/fakeData/newShow";
-import { generateRandomId } from "../../lib/features/reservations/utils";
+import { generateNewBand } from "../../../__tests__/__mocks__/fakeData/newBand";
+import { generateNewShow } from "../../../__tests__/__mocks__/fakeData/newShow";
+import { generateRandomId } from "../../../lib/features/reservations/utils";
 
 it("should load refreshed page from cache after a new band is added", () => {
   cy.task("db:reset").visit("/bands");

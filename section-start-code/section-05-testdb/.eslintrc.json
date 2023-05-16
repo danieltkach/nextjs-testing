@@ -53,14 +53,13 @@
     "react/jsx-curly-newline": "off",
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
-    "quotes": "off",
+    // "quotes": "off",
     "object-curly-spacing": 1,
     "array-bracket-spacing": 1,
     "prettier/prettier": [
       "warn",
       {
-        "printWidth": 100,
-        "singleQuote": false,
+        // "printWidth": 100,
         "endOfLine": "auto"
       }
     ],
