@@ -1,21 +1,12 @@
-# Popular Concert Venue
+# NextJs Testing Practice
+The practice includes:
 
-### An app to support the Udemy course [Testing Next.js Apps](https://www.udemy.com/course/nextjs-testing/)
+* Testing Next.js UI, API, routes, authentication and database interactions
+* When to use unit testing, integration testing and end-to-end testing -- and why!
+* Strategies for testing SSG, SSR, ISR and CSR (including cache updates and SWR revalidation intervals)
+* How to use a test database for tests that involve data fetching and mutations
 
-## Installation
+### References:
+Bonnie Schulkin, www.udemy.com/course/nextjs-testing
 
-1. Run `npm install`
-1. Run `cp .env.development.local_template .env.development.local`
-1. Run `cp .env.test.local_template .env.test.local`
-1. Run `cp .env.local_template .env.local`
-1. In _.env.local_ and _.env.test.local_:
-
-- add site base URL for `NEXTAUTH_URL` and `NEXT_PUBLIC_BASE_URL`
-
-- add long, hard-to-guess strings as the values for `NEXTAUTH_SECRET` and `REVALIDATION_SECRET`
-
-  - command to generate a random string: `openssl rand -base64 32`
-
-## Running the App
-
-Run `npm run dev`. The app will be found at [http://localhost:3000]
+![Screenshot from 2023-05-16 00-21-18](https://github.com/danieltkach/nextjs-testing/assets/70539591/a81be9d1-9766-496a-882d-3eba7ee6dd05)
