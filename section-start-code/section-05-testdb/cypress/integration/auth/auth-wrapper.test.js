@@ -30,7 +30,9 @@ it("runs auth flow for successful login to protected reservations page", () => {
 
   // check for email and sign-out button on navbar
   // cy.findByRole("button", { name: Cypress.env("TEST_USER_EMAIL") }).should("exist");
-  cy.findByRole("button", { name: "My Profile" }).should("exist");
+  cy.findByRole("button", { name: Cypress.env("TEST_USER_EMAIL") }).should(
+    "exist"
+  );
   cy.findByRole("button", { name: /sign out/i }).should("exist");
 
   // check that sign in button does not exist
@@ -68,7 +70,9 @@ it("checks failed sign-in flow", () => {
     cy.findByRole("button", { name: /sign in/i }).click();
   });
 
-  cy.findByRole("button", { name: "My Profile" }).should("exist");
+  cy.findByRole("button", { name: Cypress.env("TEST_USER_EMAIL") }).should(
+    "exist"
+  );
   cy.findByRole("button", { name: /sign out/i }).should("exist");
 
   // check that sign in button does not exist
