@@ -1,10 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { testApiHandler } from "next-test-api-route-handler";
 
+import { validateToken } from "@/lib/auth/utils";
 import userReservationsHandler from "@/pages/api/users/[userId]/reservations";
 import userAuthHandler from "@/pages/api/users/index";
 
 jest.mock("@/lib/auth/utils");
+const mockValidateToken = validateToken as jest.Mock;
 
 test("POST /api/users receives token with correct credentials", async () => {
   await testApiHandler({
@@ -58,6 +60,24 @@ test("GET /api/user/[userid] returns empty array for user without reservations",
       expect(res.status).toBe(200);
       const json = await res.json();
       expect(json.userReservations).toHaveLength(0);
+    },
+  });
+});
+
+test("GET /api/user/[userId]/reservations returns 401 status when unauthorized", async () => {
+  mockValidateToken.mockResolvedValue(false);
+
+  await testApiHandler({
+    handler: userReservationsHandler,
+    paramsPatcher: (params) => {
+      params.userId = 1;
+    },
+    test: async ({ fetch }) => {
+      const res = await fetch({
+        method: "GET",
+      });
+
+      expect(res.status).toBe(401);
     },
   });
 });
